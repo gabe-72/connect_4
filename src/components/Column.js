@@ -1,5 +1,5 @@
 import Circle from "./Circle";
-import { NUM_ROWS } from "./gameconfig";
+import { NUM_ROWS } from "../gameconfig";
 import React from "react";
 
 export default class Column extends React.Component {

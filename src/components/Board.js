@@ -1,5 +1,5 @@
 import Column from "./Column";
-import { NUM_COLUMNS } from "./gameconfig";
+import { NUM_COLUMNS } from "../gameconfig";
 import React from "react";
 
 export default class Board extends React.Component {

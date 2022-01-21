@@ -1,5 +1,6 @@
 # Match four
 Match four game created using React.js for fun
+(Created using create-react-app)
 
 ## Available Scripts
 To start the game:
