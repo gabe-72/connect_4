@@ -1,9 +1,12 @@
 body {
-  background-color: #666;
+  font-family: serif;
+  color: #f7f7f7;
+  background-color: #404040;
 }
 
 .game {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
