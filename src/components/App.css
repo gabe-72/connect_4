@@ -12,6 +12,12 @@ body {
   height: 100%;
 }
 
+.next-player-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .game-board {
   display: inline-block;
   border: 3px solid #000;

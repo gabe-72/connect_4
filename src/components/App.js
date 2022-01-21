@@ -1,7 +1,8 @@
-import './App.css';
+import "./App.css";
 import { NUM_ROWS, NUM_COLUMNS, P1, P2 } from "./gameconfig";
-import Board from './Board';
-import React from 'react';
+import Board from "./Board";
+import Circle from "./Circle";
+import React from "react";
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class Game extends React.Component {
 
     this.state = {
       circles: sqr,
-      redNext: true
+      p1Next: true
     };
   }
 
@@ -26,17 +27,17 @@ export default class Game extends React.Component {
 
     let circles = this.state.circles.map((column) => column.slice());
     
-    circles[column][row] = (this.state.redNext? P1 : P2);
+    circles[column][row] = (this.state.p1Next? P1 : P2);
     this.setState({
       circles: circles,
-      redNext: !this.state.redNext
+      p1Next: !this.state.p1Next
     });
   }
 
   render() {
     return (
       <div className="game">
-        <h1>Player <div /></h1>
+        <h1 className="next-player-stat">Player <Circle color={this.state.p1Next? P1 : P2} /></h1>
         <div className="game-board">
           <Board
             circles={this.state.circles}
