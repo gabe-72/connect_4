@@ -67,25 +67,23 @@ class Game extends React.Component {
     }
 
     this.state = {
-      squares: sqr,
+      circles: sqr,
       redNext: true
     };
   }
 
   handleClick(column, row) {
-    if (row >= NUM_ROWS || this.state.squares[column][row]) {
+    if (row >= NUM_ROWS || this.state.circles[column][row]) {
       return;
     }
 
-    let squares = this.state.squares.map((column) => column.slice());
+    let circles = this.state.circles.map((column) => column.slice());
     
-    squares[column][row] = (this.state.redNext? P1 : P2);
+    circles[column][row] = (this.state.redNext? P1 : P2);
     this.setState({
-      squares: squares,
+      circles: circles,
       redNext: !this.state.redNext
     });
-    
-    console.log(squares);
   }
 
   render() {
