@@ -1,10 +1,8 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Match four
+Match four created using React.js for fun
 
 ## Available Scripts
-
-In the project directory, you can run:
+To start the game:
 
 ### `npm start`
 
