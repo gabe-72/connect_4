@@ -3,8 +3,8 @@ import Circle from "./Circle";
 
 export default function GameOver(props) {
   /** @type {JSX.Element} */
-  let message = <div>Tie</div>;
-  if (props.winner !== "None") {
+  let message = <h1>Tie</h1>;
+  if (props.winner !== "Tie") {
     message = <div className="game-stat"><h1>Winner:</h1><Circle color={props.winner}/></div>
   }
 

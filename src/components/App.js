@@ -2,7 +2,7 @@ import React from "react";
 import Board from "./Board";
 import Circle from "./Circle";
 import GameOver from "./GameOver";
-import { NUM_ROWS, NUM_COLUMNS, P1, P2 } from "../gameconfig";
+import { NUM_ROWS, P1, P2 } from "../gameconfig";
 import defaultBoard from "../util/defaultBoard";
 import checkWinner from "../util/checkWin";
 import checkTie from "../util/checkTie";
@@ -33,7 +33,6 @@ export default class Game extends React.Component {
     let winner = null;
     if (checkWinner(circles, col, row)) {
       winner = circles[col][row];
-      console.log("win")
     } else if (checkTie(circles)) {
       winner = "None";
     }

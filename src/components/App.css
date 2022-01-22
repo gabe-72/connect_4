@@ -1,14 +1,7 @@
-html {
-  height: 100%;
-  margin: 0;
-}
-
 body {
   font-family: serif;
   color: #f7f7f7;
   background-color: #404040;
-  height: 100%;
-  margin: 0;
 }
 
 .gameover-overlay {
@@ -23,6 +16,7 @@ body {
   bottom: 0;
   width: 100%;
   gap: 10px;
+  cursor: default;
 }
 
 .game {

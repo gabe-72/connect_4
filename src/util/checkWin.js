@@ -11,7 +11,8 @@ import { NUM_ROWS, NUM_COLUMNS, WIN_NUM } from "../gameconfig";
 function checkWinner(circles, col, row) {
   const directions = [[-1, 0], [1, 0], [0, -1], [-1, -1], [1, -1], [-1, 1], [1, 1]];
   for (let [colChange, rowChange] of directions) {
-    if (checkDirection(circles, col, row, colChange, rowChange))
+    if (checkDirection(circles, col, row, colChange, rowChange)
+    + checkDirection(circles, col, row, -colChange, -rowChange) - 1 >= WIN_NUM)
       return true;
   }
   return false;
@@ -32,14 +33,15 @@ function checkDirection(circles, col, row, colChange, rowChange) {
   const ROW_MAX = row + (rowChange === 0 ? 1 : rowChange * WIN_NUM);
 
   const player = circles[col][row];
-  let i = col, j = row;
+  let i = col, j = row, count = 0;
   do {
     if (i < 0 || i >= NUM_COLUMNS || j < 0 || j >= NUM_ROWS || circles[i][j] !== player)
-      return false;
+      return count;
+    ++count;
     i += colChange;
     j += rowChange;
   } while (i !== COL_MAX && j !== ROW_MAX);
-  return true;
+  return count;
 }
 
 export default checkWinner
