@@ -9,7 +9,7 @@ import { NUM_ROWS, NUM_COLUMNS, WIN_NUM } from "../gameconfig";
  * @returns {Boolean} true if there is a winner, otherwise false
  */
 function checkWinner(circles, col, row) {
-  const directions = [[-1, 0], [1, 0], [0, -1], [-1, -1], [1, -1], [-1, 1], [1, 1]];
+  const directions = [[1, 0], [0, 1], [1, 1], [1, -1]];
   for (let [colChange, rowChange] of directions) {
     if (checkDirection(circles, col, row, colChange, rowChange)
     + checkDirection(circles, col, row, -colChange, -rowChange) - 1 >= WIN_NUM)
