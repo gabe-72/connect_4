@@ -4,6 +4,8 @@ body {
   background-color: #404040;
 }
 
+.gameover-overlay {}
+
 .game {
   display: flex;
   flex-direction: column;

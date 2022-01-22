@@ -1,24 +1,21 @@
-import "./App.css";
-import { NUM_ROWS, NUM_COLUMNS, P1, P2 } from "../gameconfig";
-import checkWinner from "../game/checkWin";
+import React from "react";
 import Board from "./Board";
 import Circle from "./Circle";
-import React from "react";
+import { NUM_ROWS, NUM_COLUMNS, P1, P2 } from "../gameconfig";
+import defaultBoard from "../util/defaultBoard";
+import checkWinner from "../util/checkWin";
+import checkTie from "../util/checkTie";
+import "./App.css";
+
 
 export default class Game extends React.Component {
   constructor(props) {
     super(props);
 
-    // initialize the circles of the board
-    let sqr = [];
-    for (let i = 0; i < NUM_COLUMNS; ++i) {
-      sqr.push(Array(NUM_ROWS).fill(0));
-    }
-
     this.state = {
-      circles: sqr,
+      circles: defaultBoard(),
       p1Next: true,
-      winner: 0
+      winner: null
     };
   }
 
@@ -27,12 +24,16 @@ export default class Game extends React.Component {
       return;
     }
 
+    // copy of circles
     let circles = this.state.circles.map((col) => col.slice());
     circles[col][row] = (this.state.p1Next? P1 : P2);
-    let winner = 0;
+
+    // check if this move causes a win
+    let winner = null;
     if (checkWinner(circles, col, row)) {
       winner = circles[col][row];
-      console.log("won");
+    } else if (checkTie(circles)) {
+      winner = "None";
     }
 
     this.setState({
@@ -42,6 +43,15 @@ export default class Game extends React.Component {
     });
   }
 
+  reset() {
+    this.setState({
+      circles: defaultBoard(),
+      p1Next: true,
+      winner: null
+    });
+  }
+
+  // TODO add reset button
   render() {
     return (
       <div className="game">
