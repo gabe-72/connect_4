@@ -1,6 +1,7 @@
 import React from "react";
 import Board from "./Board";
 import Circle from "./Circle";
+import GameOver from "./GameOver";
 import { NUM_ROWS, NUM_COLUMNS, P1, P2 } from "../gameconfig";
 import defaultBoard from "../util/defaultBoard";
 import checkWinner from "../util/checkWin";
@@ -32,6 +33,7 @@ export default class Game extends React.Component {
     let winner = null;
     if (checkWinner(circles, col, row)) {
       winner = circles[col][row];
+      console.log("win")
     } else if (checkTie(circles)) {
       winner = "None";
     }
@@ -55,6 +57,13 @@ export default class Game extends React.Component {
   render() {
     return (
       <div className="game">
+        {this.state.winner === null?
+          "" :
+          <GameOver
+            winner={this.state.winner === "None" ? "Tie" : this.state.winner}
+            onClick={() => this.reset()}
+          />
+        }
         <div className="game-stat">
           <h1>Player</h1><Circle color={this.state.p1Next? P1 : P2} />
         </div>

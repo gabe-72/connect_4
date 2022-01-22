@@ -8,7 +8,7 @@ import { NUM_ROWS, NUM_COLUMNS } from "../gameconfig";
  */
 export default function checkTie(circles) {
   for (let i = 0; i < NUM_COLUMNS; ++i) {
-    if (circles[i][NUM_ROWS-1] === 0)
+    if (circles[i][NUM_ROWS-1] === null)
       return false;
   }
   return true;
